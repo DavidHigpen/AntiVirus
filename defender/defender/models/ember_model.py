@@ -6,6 +6,8 @@ from annoy import AnnoyIndex  # pip install --user annoy
 from random import randint
 import lief
 import logging
+# import pickle
+# from .nfs_model import NeedForSpeedModel
 
 logging.basicConfig(level=logging.DEBUG)
 EMBER_MODEL_PATH = 'defender/models/ember_model.txt.gz'
@@ -19,6 +21,7 @@ class EmberModel(object):
                  name: str = 'ember'):
         # load lightgbm model
         with gzip.open(model_gz_path, 'rb') as f:
+            # model = pickle.load(f)
             model = f.read().decode('ascii')
 
         self.model_gz_path = model_gz_path

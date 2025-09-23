@@ -4,9 +4,10 @@ from defender.apps import create_app
 
 # CUSTOMIZE: import model to be used
 from defender.models.ember_model import StatefulNNEmberModel
-from defender.models.nfs_behemot_model import NFSBehemotModel
-from defender.models.nfs_commite_model import NFSCommiteBehemotModel
-from defender.models.nfs_model import PEAttributeExtractor, NFSModel, NeedForSpeedModel
+# from defender.models.nfs_behemot_model import NFSBehemotModel
+# from defender.models.nfs_commite_model import NFSCommiteBehemotModel
+# from defender.models.nfs_model import PEAttributeExtractor, NFSModel, NeedForSpeedModel
+# from defender.models.dummy_model import DummyModel
 
 if __name__ == "__main__":
     # retrive config values from environment variables
@@ -21,16 +22,13 @@ if __name__ == "__main__":
         model_gz_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), model_gz_path)
 
     # CUSTOMIZE: app and model instance
-    # model = StatefulNNEmberModel(model_gz_path,
-    #                              model_thresh,
-    #                              model_ball_thresh,
-    #                              model_max_history,
-    #                              model_name)
+    model = StatefulNNEmberModel(model_gz_path, model_thresh, model_ball_thresh, model_max_history, model_name)
     
     # model = NFSBehemotModel()
     # model = NFSCommiteBehemotModel()
-    model = NFSModel(open(os.path.dirname(__file__) + "/models/nfs_full.pickle", "rb"))
+    # model = NFSModel(open(os.path.dirname(__file__) + "/models/nfs_full.pickle", "rb"))
     # model = NFSModel(open(os.path.dirname(__file__) + "/models/nfs_libraries_functions_nostrings.pickle", "rb"))
+    # model = DummyModel(model_thresh, model_name)
 
     app = create_app(model)
 

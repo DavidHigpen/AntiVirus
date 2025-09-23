@@ -10,6 +10,8 @@ urlFragment: "Azure/2020-machine-learning-security-evasion-competition"
 
 # This is a fork/copy version of the original repository.
 
+# Team members: David Higgins, Daniel Fuhrmann, Ryan Coffman, Zachary Williams, Yuexin
+
 # 2020 Machine Learning Security Evasion Competition
 
 <!-- 
